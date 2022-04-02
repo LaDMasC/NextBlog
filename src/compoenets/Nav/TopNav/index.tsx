@@ -1,38 +1,51 @@
 import { SearchOutlined } from "@ant-design/icons";
+import { useRouter } from "next/router";
 import React from "react";
 import { St, Sv } from "src/compoenets";
 import colors from "src/styles/colors";
 import { backgroundBlur } from "src/styles/filters";
 import styled, { css } from "styled-components";
 
-const TopNav: React.FC = () => {
+const TopNav: React.FC<{ url: string }> = ({ url }) => {
+  const router = useRouter();
+  const onClickNavButton = (endpoint: string) => {
+    router.push(endpoint);
+  };
+
   return (
     <Container>
-      <NavItemContainer>
+      <NavItemContainer onClick={() => onClickNavButton("/home")}>
         <St s1 white>
           LaDMasC
         </St>
       </NavItemContainer>
-      <Sv row gx={16} act>
-        <NavItemContainer isSelected>
+      <Sv row gx={20} act>
+        <NavItemContainer onClick={() => onClickNavButton("/home")}>
           <St b1 white>
             Home
           </St>
+          <NavItemBottomLine isSelected={url == "/home"} />
         </NavItemContainer>
-        <NavItemContainer>
+        <NavItemContainer onClick={() => onClickNavButton("/articles")}>
           <St b1 white>
             Articles
           </St>
+          <NavItemBottomLine isSelected={url == "/articles"} />
         </NavItemContainer>
-        <NavItemContainer>
+        <NavItemContainer
+          onClick={() => {
+            window.open("https://github.com/LaDMasC");
+          }}
+        >
           <St b1 white>
             Github
           </St>
         </NavItemContainer>
-        <NavItemContainer>
+        <NavItemContainer onClick={() => onClickNavButton("/donate")}>
           <St b1 white>
             Donate Me
           </St>
+          <NavItemBottomLine isSelected={url == "/donate"} />
         </NavItemContainer>
         <LineY />
         <NavItemContainer>
@@ -60,21 +73,31 @@ const Container = styled.div`
   ${backgroundBlur}
 `;
 
-const NavItemContainer = styled(Sv)<{ isSelected?: false }>`
+const NavItemContainer = styled(Sv)`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4px 0px;
-  border-bottom: ${(props) =>
-    props.isSelected && `2px solid ${colors.primary}`};
-
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 `;
 
-const LineY = styled.div`
-  width: 20px;
+const NavItemBottomLine = styled.div<{ isSelected?: boolean }>`
+  width: 100%;
   height: 2px;
+  top: -2px;
+  background-color: ${(props) =>
+    props.isSelected ? colors.primary : "rgba(0,0,0,0)"};
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+`;
 
-  border: 1px solid #e5e5e5;
-  transform: rotate(90deg);
+const LineY = styled.div`
+  width: 0px;
+  height: 20px;
+  border: 1px solid ${colors.g0};
+  /* transform: rotate(90deg); */
 `;
