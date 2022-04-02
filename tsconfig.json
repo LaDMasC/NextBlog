@@ -14,8 +14,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".", //추가
+    "baseUrl": "." //추가
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/compoenets/styled-components/StyledDiv.js",
+    "src/compoenets/styled-components/StyledText.js"
+  ],
   "exclude": ["node_modules"]
 }
