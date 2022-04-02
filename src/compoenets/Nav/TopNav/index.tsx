@@ -2,6 +2,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import React from "react";
 import { St, Sv } from "src/compoenets";
+import { HeaderMain } from "src/compoenets/Header";
 import colors from "src/styles/colors";
 import { backgroundBlur } from "src/styles/filters";
 import styled, { css } from "styled-components";
@@ -13,46 +14,49 @@ const TopNav: React.FC<{ url: string }> = ({ url }) => {
   };
 
   return (
-    <Container>
-      <NavItemContainer onClick={() => onClickNavButton("/home")}>
-        <St s1 white>
-          LaDMasC
-        </St>
-      </NavItemContainer>
-      <Sv row gx={20} act>
+    <div>
+      <Container>
         <NavItemContainer onClick={() => onClickNavButton("/home")}>
-          <St b1 white>
-            Home
-          </St>
-          <NavItemBottomLine isSelected={url == "/home"} />
-        </NavItemContainer>
-        <NavItemContainer onClick={() => onClickNavButton("/articles")}>
-          <St b1 white>
-            Articles
-          </St>
-          <NavItemBottomLine isSelected={url == "/articles"} />
-        </NavItemContainer>
-        <NavItemContainer
-          onClick={() => {
-            window.open("https://github.com/LaDMasC");
-          }}
-        >
-          <St b1 white>
-            Github
+          <St s1 white>
+            LaDMasC
           </St>
         </NavItemContainer>
-        <NavItemContainer onClick={() => onClickNavButton("/donate")}>
-          <St b1 white>
-            Donate Me
-          </St>
-          <NavItemBottomLine isSelected={url == "/donate"} />
-        </NavItemContainer>
-        <LineY />
-        <NavItemContainer>
-          <SearchOutlined style={{ color: colors.white }} />
-        </NavItemContainer>
-      </Sv>
-    </Container>
+        <Sv row gx={20} act>
+          <NavItemContainer onClick={() => onClickNavButton("/home")}>
+            <St b1 white>
+              Home
+            </St>
+            <NavItemBottomLine isSelected={url == "/home"} />
+          </NavItemContainer>
+          <NavItemContainer onClick={() => onClickNavButton("/articles")}>
+            <St b1 white>
+              Articles
+            </St>
+            <NavItemBottomLine isSelected={url == "/articles"} />
+          </NavItemContainer>
+          <NavItemContainer onClick={() => onClickNavButton("/donate")}>
+            <St b1 white>
+              Donate Me
+            </St>
+            <NavItemBottomLine isSelected={url == "/donate"} />
+          </NavItemContainer>
+          <NavItemContainer
+            onClick={() => {
+              window.open("https://github.com/LaDMasC");
+            }}
+          >
+            <St b1 white>
+              Github
+            </St>
+          </NavItemContainer>
+          <LineY />
+          <NavItemContainer>
+            <SearchOutlined style={{ color: colors.white }} />
+          </NavItemContainer>
+        </Sv>
+      </Container>
+      <HeaderMain />
+    </div>
   );
 };
 
