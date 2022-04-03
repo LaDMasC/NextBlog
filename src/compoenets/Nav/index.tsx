@@ -1,3 +1,3 @@
-import TopNav from 'src/compoenets/Nav/TopNav/index'
+import TopNav from "src/compoenets/Nav/TopNav/index";
 
-export {TopNav}
+export { TopNav };

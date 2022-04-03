@@ -73,6 +73,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
 
   ${backgroundBlur}
 `;
