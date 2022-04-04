@@ -41,7 +41,7 @@ const Container = styled(Sv)`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  height: min(382px, 20vw);
+  height: max(320px, 18vw);
 
   background: #ffffff;
   border: 1px solid #e2e2e2;
