@@ -1,3 +1,4 @@
 import CardPostBig from "./CardPostBig";
+import CardPostSmall from "./CardPostSmall";
 
-export { CardPostBig };
+export { CardPostBig, CardPostSmall };
