@@ -72,7 +72,7 @@ const Image = styled.div`
   display: flex;
   flex: 1;
   background-image: url("https://picsum.photos/500/358");
-  height: 243px;
+  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   border-top-right-radius: 5px;
