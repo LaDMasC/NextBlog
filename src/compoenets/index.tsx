@@ -1,8 +1,8 @@
-export { Sv } from "./styled-components/StyledDiv";
-export { St } from "./styled-components/StyledText";
+export { Sv } from "./common/styled-components/StyledDiv";
+export { St } from "./common/styled-components/StyledText";
 
-export { CardPostBig, CardPostSmall } from "./Card";
+export { CardPostBig, CardPostSmall } from "./common/Card";
 
-export { HeaderMain } from "./Header";
+export { HeaderMain } from "./layout/app/Header";
 
-export { TopNav } from "./Nav";
+export { TopNav } from "./layout/app/Nav";

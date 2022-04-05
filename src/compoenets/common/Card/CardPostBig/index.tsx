@@ -1,10 +1,10 @@
 import React from "react";
-import { Sv } from "src/compoenets/styled-components/StyledDiv";
-import { St } from "src/compoenets/styled-components/StyledText";
+import { Sv } from "src/compoenets";
+import { St } from "src/compoenets";
 import styled from "styled-components";
 import { CardPostProps } from "../interface";
 
-const CardPostSmall: React.FC<CardPostProps> = ({
+const CardPostBig: React.FC<CardPostProps> = ({
   title = "title",
   content = "content",
   time = "May 20th 2020",
@@ -13,11 +13,10 @@ const CardPostSmall: React.FC<CardPostProps> = ({
 }) => {
   return (
     <Container>
-      {hasImage && <Image></Image>}
       <ContentContainer>
         <ContentWrapper>
           <Sv col>
-            <St h2 g7>
+            <St h1 g7>
               {title}
             </St>
             <St b2 g3>
@@ -29,19 +28,20 @@ const CardPostSmall: React.FC<CardPostProps> = ({
           </St>
         </ContentWrapper>
       </ContentContainer>
+      {hasImage && <Image></Image>}
     </Container>
   );
 };
 
-export default CardPostSmall;
+export default CardPostBig;
 
 const Container = styled(Sv)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  height: max(320px, 18vw);
+  height: 243px;
 
   background: #ffffff;
   border: 1px solid #e2e2e2;
@@ -61,18 +61,18 @@ const ContentContainer = styled(Sv)`
 const ContentWrapper = styled(Sv)`
   display: flex;
   flex-direction: column;
-  padding-left: 16px;
-  padding-top: 18px;
-  padding-bottom: 16px;
+  padding-left: 32px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   justify-content: space-between;
   width: 100%;
 `;
 
 const Image = styled.div`
   display: flex;
-  flex: 0.9;
+  flex: 1;
   background-image: url("https://picsum.photos/500/358");
-  width: 100%;
+  height: 243px;
   background-repeat: no-repeat;
   background-size: cover;
   border-top-right-radius: 5px;

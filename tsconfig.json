@@ -20,8 +20,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/compoenets/styled-components/StyledDiv.js",
-    "src/compoenets/styled-components/StyledText.js"
+    "src/compoenets/common/styled-components/StyledDiv.js",
+    "src/compoenets/common/styled-components/StyledText.js"
   ],
   "exclude": ["node_modules"]
 }

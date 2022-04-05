@@ -2,7 +2,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import React from "react";
 import { St, Sv } from "src/compoenets";
-import { HeaderMain } from "src/compoenets/Header";
+import { HeaderMain } from "src/compoenets/layout/app/Header";
 import colors from "src/styles/colors";
 import { backgroundBlur } from "src/styles/filters";
 import styled, { css } from "styled-components";

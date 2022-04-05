@@ -1,6 +1,6 @@
 import React from "react";
-import { Sv } from "src/compoenets/styled-components/StyledDiv";
-import { St } from "src/compoenets/styled-components/StyledText";
+import { Sv } from "src/compoenets";
+import { St } from "src/compoenets";
 import { backgroundBlur } from "src/styles/filters";
 import styled from "styled-components";
 
