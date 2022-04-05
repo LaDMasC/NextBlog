@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "." //추가
+    "baseUrl": ".", //추가
+    "strictNullChecks": false
   },
   "include": [
     "next-env.d.ts",

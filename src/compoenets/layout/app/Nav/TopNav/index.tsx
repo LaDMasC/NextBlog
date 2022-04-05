@@ -3,12 +3,16 @@ import { useRouter } from "next/router";
 import React from "react";
 import { St, Sv } from "src/compoenets";
 import { HeaderMain } from "src/compoenets/layout/app/Header";
+import useWindowSize from "src/helpers/useWindowSize";
 import colors from "src/styles/colors";
 import { backgroundBlur } from "src/styles/filters";
 import styled, { css } from "styled-components";
 
 const TopNav: React.FC<{ url: string }> = ({ url }) => {
   const router = useRouter();
+
+  const windowSize = useWindowSize();
+
   const onClickNavButton = (endpoint: string) => {
     router.push(endpoint);
   };
@@ -21,39 +25,43 @@ const TopNav: React.FC<{ url: string }> = ({ url }) => {
             LaDMasC
           </St>
         </NavItemContainer>
-        <Sv row gx={20} act>
-          <NavItemContainer onClick={() => onClickNavButton("/home")}>
-            <St b1 white>
-              Home
-            </St>
-            <NavItemBottomLine isSelected={url == "/home"} />
-          </NavItemContainer>
-          <NavItemContainer onClick={() => onClickNavButton("/articles")}>
-            <St b1 white>
-              Articles
-            </St>
-            <NavItemBottomLine isSelected={url == "/articles"} />
-          </NavItemContainer>
-          <NavItemContainer onClick={() => onClickNavButton("/donate")}>
-            <St b1 white>
-              Donate Me
-            </St>
-            <NavItemBottomLine isSelected={url == "/donate"} />
-          </NavItemContainer>
-          <NavItemContainer
-            onClick={() => {
-              window.open("https://github.com/LaDMasC");
-            }}
-          >
-            <St b1 white>
-              Github
-            </St>
-          </NavItemContainer>
-          <LineY />
-          <NavItemContainer>
-            <SearchOutlined style={{ color: colors.white }} />
-          </NavItemContainer>
-        </Sv>
+        {windowSize.width > 575 ? (
+          <Sv row gx={20} act>
+            <NavItemContainer onClick={() => onClickNavButton("/home")}>
+              <St b1 white>
+                Home
+              </St>
+              <NavItemBottomLine isSelected={url == "/home"} />
+            </NavItemContainer>
+            <NavItemContainer onClick={() => onClickNavButton("/articles")}>
+              <St b1 white>
+                Articles
+              </St>
+              <NavItemBottomLine isSelected={url == "/articles"} />
+            </NavItemContainer>
+            <NavItemContainer onClick={() => onClickNavButton("/donate")}>
+              <St b1 white>
+                Donate Me
+              </St>
+              <NavItemBottomLine isSelected={url == "/donate"} />
+            </NavItemContainer>
+            <NavItemContainer
+              onClick={() => {
+                window.open("https://github.com/LaDMasC");
+              }}
+            >
+              <St b1 white>
+                Github
+              </St>
+            </NavItemContainer>
+            <LineY />
+            <NavItemContainer>
+              <SearchOutlined style={{ color: colors.white }} />
+            </NavItemContainer>
+          </Sv>
+        ) : (
+          <Sv>더보기</Sv>
+        )}
       </Container>
       <HeaderMain />
     </div>
@@ -72,10 +80,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background: rgba(0, 0, 0, 0.2);
   z-index: 10;
 
   ${backgroundBlur}
+
+  @media screen and (max-width: 768px) {
+    padding: 16px 32px;
+  }
 `;
 
 const NavItemContainer = styled(Sv)`

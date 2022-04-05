@@ -24,6 +24,8 @@ const Container = styled(Sv)`
   height: 358px;
   background-repeat: no-repeat;
   background-size: cover;
+  padding-left: 16px;
+  padding-right: 16px;
 `;
 
 const TextContainer = styled.div`
