@@ -1,7 +1,13 @@
 import { Col, Row } from "antd";
 import { NextPage } from "next";
 import React from "react";
-import { CardPostBig, CardPostSmall, HeaderMain, Sv } from "src/compoenets";
+import {
+  CardPostBig,
+  CardPostSmall,
+  HeaderMain,
+  LeftNav,
+  Sv,
+} from "src/compoenets";
 import {
   CardPostBigWrapper,
   CardPostSmallWrapper,
@@ -12,7 +18,9 @@ const HomePage: NextPage = () => {
     <>
       <Sv mt={40} />
       <Row>
-        <Col span={5} xs={1} sm={2} md={3} lg={5}></Col>
+        <Col span={5} xs={1} sm={2} md={3} lg={5}>
+          <LeftNav />
+        </Col>
         <Col span={14} xs={22} sm={20} md={18} lg={14}>
           <Row gutter={[40, 40]}>
             <CardPostBigWrapper hasImage />

@@ -5,4 +5,4 @@ export { CardPostBig, CardPostSmall } from "./common/Card";
 
 export { HeaderMain } from "./layout/app/Header";
 
-export { TopNav } from "./layout/app/Nav";
+export { TopNav, LeftNav } from "./layout/app/Nav";
